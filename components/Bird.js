@@ -21,7 +21,7 @@ export default function Bird({ speed,index, factor, url, ...props }) {
   });
 
   const { viewport,camera } = useThree()
-  const {width, height} = viewport.getCurrentViewport(camera, [0,0,1])
+  const {width, height} = viewport.getCurrentViewport(camera, [0,0,0])
   
 
   const [data] = useState({
