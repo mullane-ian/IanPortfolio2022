@@ -70,7 +70,7 @@ const birds = useMemo(
     []
   )
   return (
-    <Canvas camera={{ position: [0, 5, 100], fov: 50, near: 1, far: 20000 }}>
+    <Canvas camera={{ position: [0, 15, 110], fov: 50, near: 1, far: 20000 }}>
       <pointLight position={[100, 100, 100]} />
       <pointLight position={[-100, -100, -100]} />
       <Suspense fallback={null}>

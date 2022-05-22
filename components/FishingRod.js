@@ -14,6 +14,11 @@ export default function FishingRod({ ...props }) {
     roughness: .55,
     metalness: 0.9
   });
+  const mat2 = new THREE.MeshStandardMaterial({
+    color: new THREE.Color(1, 1, 1),
+    roughness: .55,
+    metalness: 0.9
+  });
   const { viewport } = useThree()
   useFrame(({ mouse }) => {
     const x = (mouse.x * viewport.width) / 2
@@ -29,7 +34,7 @@ export default function FishingRod({ ...props }) {
     <Float floatIntensity={20} rotationIntensity={0} >    
     <group scale={5} position={[0,10,90]} ref={group} {...props} dispose={null}>
     <group position={[0.31, -0.52, -1.52]} rotation={[Math.PI / 4, 0.06, 0]} scale={[0.13, 0.04, 0.04]}>
-      <mesh geometry={nodes.Plane.geometry} material={mat} />
+      <mesh geometry={nodes.Plane.geometry} material={mat2} />
       <mesh geometry={nodes.Plane_1.geometry} material={mat} />
     </group>
     <mesh geometry={nodes.Cylinder.geometry} material={mat} position={[0.04, -0.37, -1.66]} rotation={[2.33, -0.01, -0.09]} scale={[-0.07, -0.12, -0.07]} />
@@ -50,11 +55,11 @@ function Cable({ start, end, v1 = new THREE.Vector3(), v2 = new THREE.Vector3() 
   useFrame(() =>{
     let pos = (start.current.getWorldPosition(v1))
 
-    ref.current.setPoints([pos.x,pos.y - 100,pos.z -10000],start.current.getWorldPosition(v1)), []
+    ref.current.setPoints([pos.x,pos.y - 100,pos.z -10000],[pos.x -0.8,pos.y + 8.5,pos.z-9]), []
 
   })
  
-  return <QuadraticBezierLine ref={ref} lineWidth={.5} color="#000"  end={[0, 0, 0]}  />
+  return <QuadraticBezierLine ref={ref} lineWidth={.5} color="black"  end={[0, 0, 0]}  />
 }
 
 

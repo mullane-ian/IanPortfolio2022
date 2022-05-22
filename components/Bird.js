@@ -28,9 +28,9 @@ export default function Bird({ speed,index, factor, url, ...props }) {
     // Randomly distributing the objects along the vertical
     y: THREE.MathUtils.randFloatSpread(height * 2),
     // This gives us a random value between -1 and 1, we will multiply it with the viewport width
-    x: THREE.MathUtils.randFloatSpread(10),
+    x: THREE.MathUtils.randFloatSpread(1),
 
-    z: Math.random() * -100,
+    z:THREE.MathUtils.randFloatSpread(-1000,-500),
     // How fast objects spin
     spin: THREE.MathUtils.randFloat(8, 12),
     // Some random rotations
@@ -49,7 +49,7 @@ export default function Bird({ speed,index, factor, url, ...props }) {
     console.log(ref.current.position)
     ref.current.rotation.set((data.rX += dt / data.spin), Math.sin(index * 1000 + state.clock.elapsedTime / 10) * Math.PI, (data.rZ += dt / data.spin))
     // If they're too far up, set them back to the bottom
-    if (data.y > height * (index === 0 ? 4 : 5)) data.y = -(height * (index === 0 ? 4 : 1))
+    if (data.y > height * (index === 0 ? 1 : 2)) data.y = -(height * (index === 0 ? 3 : 2))
   })
 
   return (
